@@ -9,7 +9,7 @@ namespace Dominio.IRepositories
     public interface IMesaRepository
     {
         Task Adicionar(Mesa mesa);
-        Task Detalhar(Mesa mesa);
+        Task Alterar(Mesa mesa);
         Task Deletar(Mesa mesa);
         Task<Mesa> BuscarPoId(Guid id);
         Task<IEnumerable<Mesa>> BuscarTodos();

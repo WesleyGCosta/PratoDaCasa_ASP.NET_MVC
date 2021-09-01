@@ -9,7 +9,7 @@ namespace Dominio.IRepositories
     public interface ITipoDeProdutoRepository
     {
         Task Adicionar(TipoDeProduto tipoDeProduto);
-        Task Detalhar(TipoDeProduto tipoDeProduto);
+        Task Alterar(TipoDeProduto tipoDeProduto);
         Task Deletar(TipoDeProduto tipoDeProduto);
         Task<TipoDeProduto> BuscarPoId(Guid id);
         Task<IEnumerable<TipoDeProduto>> BuscarTodos();

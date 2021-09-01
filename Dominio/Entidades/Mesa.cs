@@ -7,6 +7,17 @@ namespace Dominio.Entidades
 {
     public class Mesa
     {
+        public Mesa(int numero, 
+            int qntCadeira, 
+            EStatus status, 
+            int qntCliente)
+        {
+            Numero = numero;
+            QntCadeira = qntCadeira;
+            Status = status;
+            QntCliente = qntCliente;
+        }
+
         public Guid Id { get; private set; }
         public int Numero { get; private set; }
         public int QntCadeira {  get; private set; }

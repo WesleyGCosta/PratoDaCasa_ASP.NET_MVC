@@ -5,6 +5,15 @@ namespace Dominio.Entidades
 {
     public class Cliente
     {
+        public Cliente(Guid mesaId, 
+            DateTime horaChegada, 
+            DateTime horaSaida)
+        {
+            MesaId = mesaId;
+            HoraChegada = horaChegada;
+            HoraSaida = horaSaida;
+        }
+
         public Guid Id {  get; private set; }
         public Guid MesaId {  get; private set; }
         public DateTime HoraChegada { get; private set; }

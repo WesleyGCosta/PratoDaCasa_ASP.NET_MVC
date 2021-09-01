@@ -8,8 +8,11 @@ namespace WebApplication.Models
     public class ClienteViewModel
     {
         public Guid Id {  get; set; }
+        public Guid MesaId { get; set; }
         public DateTime HoraChegada { get; set; }
         public DateTime HoraSaida { get; set; }
+
+        public MesaViewModel MesaViewModel { get; set; }
 
     }
 }

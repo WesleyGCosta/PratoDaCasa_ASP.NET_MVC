@@ -1,9 +1,6 @@
 ﻿using Dominio.Entidades;
 using Infra.Contexto.Maps;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Infra.Contexto
 {
@@ -15,6 +12,8 @@ namespace Infra.Contexto
         public DbSet<Cliente> Clientes {  get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<ItemDoPedido> ItemDoPedidos {  get; set; }
+        public DbSet<Produto> Produtos {  get; set; }
+        public DbSet<TipoDeProduto> TipoDeProdutos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +21,8 @@ namespace Infra.Contexto
             modelBuilder.ApplyConfiguration(new ClienteMap());
             modelBuilder.ApplyConfiguration(new PedidoMap());
             modelBuilder.ApplyConfiguration(new ItemDoPedidoMap());
+            modelBuilder.ApplyConfiguration(new ProdutoMap());
+            modelBuilder.ApplyConfiguration(new TipoDeProdutoMap());
         }
 
     }

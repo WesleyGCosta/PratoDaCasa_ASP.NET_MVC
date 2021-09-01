@@ -9,7 +9,7 @@ namespace Dominio.IRepositories
     public interface IPedidoRepository
     {
         Task Adicionar(Pedido pedido);
-        Task Detalhar(Pedido pedido);
+        Task Alterar(Pedido pedido);
         Task Deletar(Pedido pedido);
         Task<Pedido> BuscarPoId(Guid id);
         Task<IEnumerable<Pedido>> BuscarTodos();

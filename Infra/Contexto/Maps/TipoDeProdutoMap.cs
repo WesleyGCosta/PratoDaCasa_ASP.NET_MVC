@@ -1,13 +1,10 @@
 ﻿using Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Infra.Contexto.Maps
 {
-    public class TipoProdutoMap : IEntityTypeConfiguration<TipoDeProduto>
+    public class TipoDeProdutoMap : IEntityTypeConfiguration<TipoDeProduto>
     {
         public void Configure(EntityTypeBuilder<TipoDeProduto> builder)
         {
