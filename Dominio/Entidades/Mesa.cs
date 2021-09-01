@@ -25,5 +25,18 @@ namespace Dominio.Entidades
         public int QntCliente {  get; private set; }
 
         public ICollection<Cliente> Clientes {  get; private set; }
+
+        /*Métodos*/
+        public void AtualizarMesa(int numero, 
+            int qntCadeira, 
+            EStatus status, 
+            int qntCliente)
+        {
+            this.Numero = numero;
+            this.QntCadeira = qntCadeira;
+            this.Status = status;
+            this.QntCliente = qntCliente;
+        }
+
     }
 }
