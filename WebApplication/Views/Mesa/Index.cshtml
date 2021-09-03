@@ -4,17 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div id="PlaceHolderHere"></div>
 
-<p>
-    <a asp-action="Adicionar">Adicionar Nova Mesa</a>
-</p>
+<button type="button" class="btn btn-info" data-toggle="ajax-modal" data-target="#myModal" data-url="@Url.Action("Adicionar")">Adicionar Mesa</button>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Numero)
             </th>
@@ -31,29 +27,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QntCadeira)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QntCliente)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model) 
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QntCadeira)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QntCliente)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info" data-toggle="ajax-modal" data-target="#myModal" data-url="@Url.Action($"Alterar/{item.Id}")">Alterar</button>
+                        <button type="button" class="btn btn-info" data-toggle="ajax-modal" data-target="#myModal" data-url="@Url.Action($"Detalhar/{item.Id}")">Detalhes</button>
+                        @Html.ActionLink("Deletar", "Deletar", new {  id=item.Id  } , new { @class = "btn btn-outline-danger", @onClick = "javascript:return" + " confirm('Confirma a Exclusão?')" })
+                    </td>
+                </tr>
+        }
     </tbody>
 </table>

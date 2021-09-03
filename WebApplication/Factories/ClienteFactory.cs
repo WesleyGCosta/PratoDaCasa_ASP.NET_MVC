@@ -33,7 +33,7 @@ namespace WebApplication.Factories
             return cliente;
         }
 
-        public static IEnumerable<ClienteViewModel> MapearListaCLienteViewModel(IEnumerable<Cliente> clientes)
+        public static IEnumerable<ClienteViewModel> MapearListaClienteViewModel(IEnumerable<Cliente> clientes)
         {
             var lista = new List<ClienteViewModel>();
             foreach (var item in clientes)

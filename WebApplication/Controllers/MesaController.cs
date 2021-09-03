@@ -2,8 +2,6 @@
 using Historia.Mesas;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WebApplication.Factories;
 using WebApplication.Models;
@@ -36,7 +34,8 @@ namespace WebApplication.Controllers
 
         public IActionResult Adicionar()
         {
-            return View();
+            MesaViewModel mesa = new MesaViewModel();
+            return PartialView("_AdicionarMesa", mesa);
         }
 
         [HttpPost]
@@ -52,11 +51,9 @@ namespace WebApplication.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(mesaViewModel);
+            return RedirectToAction("Index");
         }
 
-
-        //aqui
         public async Task<IActionResult> Alterar(Guid id)
         {
             var mesa = await _consultarMesa.BuscarPorId(id);
@@ -68,7 +65,7 @@ namespace WebApplication.Controllers
 
             var mesaViewModel = MesaFactory.MapearMesaViewModel(mesa);
 
-            return View(mesaViewModel);
+            return PartialView("_AlterarMesa", mesaViewModel);
         }
 
         [HttpPost]
@@ -98,10 +95,10 @@ namespace WebApplication.Controllers
 
             var mesaViewModel = MesaFactory.MapearMesaViewModel(mesa);
 
-            return View(mesaViewModel);
+            return PartialView("_DetalhesDaMesa", mesaViewModel);
         }
 
-        public async Task<IActionResult> Excluir(Guid id)
+        public async Task<IActionResult> Deletar(Guid id)
         {
             var mesa = await _consultarMesa.BuscarPorId(id);
 

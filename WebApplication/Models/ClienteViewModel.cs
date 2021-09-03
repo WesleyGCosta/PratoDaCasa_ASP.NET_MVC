@@ -7,6 +7,11 @@ namespace WebApplication.Models
 {
     public class ClienteViewModel
     {
+        public ClienteViewModel()
+        {
+            HoraChegada = DateTime.Now;
+        }
+
         public Guid Id {  get; set; }
         public Guid MesaId { get; set; }
         public DateTime HoraChegada { get; set; }

@@ -1,0 +1,48 @@
+﻿@model WebApplication.Models.ClienteViewModel
+
+@{
+    ViewData["Title"] = "Alterar";
+}
+
+<h1>Alterar</h1>
+
+<h4>Alterar Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Alterar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MesaId" class="control-label"></label>
+                <input asp-for="MesaId" class="form-control" />
+                <span asp-validation-for="MesaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraChegada" class="control-label"></label>
+                <input asp-for="HoraChegada" class="form-control" />
+                <span asp-validation-for="HoraChegada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraSaida" class="control-label"></label>
+                <input asp-for="HoraSaida" class="form-control" />
+                <span asp-validation-for="HoraSaida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

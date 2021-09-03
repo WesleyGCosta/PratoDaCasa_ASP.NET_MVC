@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Dominio.Entidades
 {
@@ -21,5 +22,12 @@ namespace Dominio.Entidades
 
         public Mesa Mesa { get; private set; }
         public ICollection<Pedido> Pedidos {  get; private set; }
+
+
+        public void AtualizarCliente(DateTime horachegada, DateTime horaSaida)
+        {
+            this.HoraChegada = horachegada;
+            this.HoraSaida = horaSaida;
+        }
     }
 }
