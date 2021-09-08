@@ -1,71 +1,164 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
+:root{
+    --nav-width: 92px;
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
+    /*=====Cores====*/
+    --first-color: #0C5DF4;
+    --bg-color: #12192C;
+    --sub-color: #B6CEFC;
+    --white-color: #FFF;
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
+    /*====Fontes====*/
+    --body-font: 'Poppins', sans-serif;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    --z-index: 100;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+*,::before,::after{
+    box-sizing: border-box;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    position: relative;
+    margin: 0;
+    padding: 2rem 0 0 6.75rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+    background-color: #808080;
+    color: white;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.body-pd{
+    padding: 2rem 0 0 16rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    padding: 1.5rem 1.5rem 2rem;
+    transition: .5s;
+    z-index: var(--z-index);
+}
+
+.nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.nav__brand{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.nav__toggle{
+    font-size: 1.25rem;
+    padding: .75rem;
+    cursor: pointer;
+}
+
+.nav__logo{
+    color: var(--white-color);
+    font-weight: 600;
+    
+    overflow: hidden;
+    border-right: .15rem;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15rem;
+    animation:
+        typing 3.5s steps(30, end),
+        blink-animation .5s step-end infinite;
+}
+
+@keyframes typing{
+    from{width: 0}
+    to {width: 100%}
+}
+
+@keyframes blinl-animation {
+    from, to {border-color: transparent}
+    50% {border-color: #00D8FF}
+}
+
+.nav__link{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: .75rem;
+    padding: .75rem;
+    color: var(--white-color);
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.nav__link:hover{
+    background-color: var(--first-color);
+    color: var(--white-color);
+    text-decoration: none;
+}
+.nav__icon{
+    font-size: 1.25rem;
+}
+.nav__name{
+    font-size: var(--small-font-size);
+}
+
+.expander{
+    width: calc(var(--nav-width) + 9.25rem);
+}
+
+/*Links do Menu*/
+.active{
+    background-color: var(--first-color);
+}
+
+/*Collapse*/
+.collapse{
+    grid-template-columns: 20px max-content 1fr;
+}
+.collapse__link{
+    justify-self: flex-end;
+    transition: .5s;
+}
+.collapse__menu{
+    display:none;
+    padding: .75rem 2.25rem;
+}
+.collapse__sublink{
+    color: var(--sub-color);
+    font-size: var(--small-font-size);
+}
+.collapse__sublink:hover{
+    color: var(--white-color);
 }

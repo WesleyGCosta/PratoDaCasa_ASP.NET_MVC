@@ -1,8 +1,28 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿/*=====Expansão Menu=====*/
+const showMenu = (toggleId, navbarId, bodyId) => {
+    const toggle = document.getElementById(toggleId),
+        navbar = document.getElementById(navbarId),
+        bodypadding = document.getElementById(bodyId)
 
-// Write your JavaScript code.
+    if (toggle && navbar) {
+        toggle.addEventListener('click', () => {
+            navbar.classList.toggle('expander')
 
+            bodypadding.classList.toggle('body-pd')
+        })
+    }
+}
+showMenu('nav-toggle','navbar', 'body-pd')
+
+/*=====Link=====*/
+const linkColor = document.querySelectorAll('.nav__link')
+function colorLink() {
+    linkColor.forEach(l => l.classList.remove('active'))
+    this.classList.add('active')
+}
+linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+/*=====script MODAL======*/
 $(function () {
     var PlaceHolderElement = $('#PlaceHolderHere');
     $('button[data-toggle="ajax-modal"]').click(function (event) {

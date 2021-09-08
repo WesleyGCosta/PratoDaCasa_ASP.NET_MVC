@@ -34,8 +34,8 @@ namespace WebApplication.Controllers
 
         public IActionResult Adicionar()
         {
-            MesaViewModel mesa = new MesaViewModel();
-            return PartialView("_AdicionarMesa", mesa);
+            //MesaViewModel mesa = new MesaViewModel();
+            return PartialView("_AdicionarMesa"/*, mesa*/);
         }
 
         [HttpPost]
