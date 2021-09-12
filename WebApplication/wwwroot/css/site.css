@@ -1,19 +1,18 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-:root{
+:root {
     --nav-width: 92px;
-
     /*=====Cores====*/
     --first-color: #0C5DF4;
     --bg-color: #12192C;
     --sub-color: #B6CEFC;
     --white-color: #FFF;
+    --fundo-color: #1B2B47;
 
     /*====Fontes====*/
     --body-font: 'Poppins', sans-serif;
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
-
     --z-index: 100;
 }
 
@@ -28,7 +27,7 @@ body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: .5s;
-    background-color: #808080;
+    background-color: var(--fundo-color);
     color: white;
 }
 
@@ -48,6 +47,18 @@ ul {
 
 a {
     text-decoration: none;
+}
+
+.table{
+    color: var(--white-color);
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+}
+
+.close{
+    color: var(--white-color);
 }
 
 .navbar-1 {
@@ -88,25 +99,6 @@ a {
 .nav__logo{
     color: var(--white-color);
     font-weight: 600;
-    
-    overflow: hidden;
-    border-right: .15rem;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15rem;
-    animation:
-        typing 3.5s steps(30, end),
-        blink-animation .5s step-end infinite;
-}
-
-@keyframes typing{
-    from{width: 0}
-    to {width: 100%}
-}
-
-@keyframes blinl-animation {
-    from, to {border-color: transparent}
-    50% {border-color: #00D8FF}
 }
 
 .nav__link{
@@ -161,4 +153,28 @@ a {
 }
 .collapse__sublink:hover{
     color: var(--white-color);
+}
+
+.container-lista {
+    justify-content: start;
+}
+
+.lista-item {
+    margin: 10px 1%;
+    background-color: #f8f8f8;
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+    padding: 30px 30px 15px 30px;
+    line-height: 32px;
+    max-width: 20.813rem;
+    color: rgb(8,90,171);
+}
+
+    .lista-item:hover {
+        text-decoration: none;
+        color: rgb(8,90,171);
+    }
+
+.titulo-card {
+    color: rgb(8,90,171);
+    font-size: 1.1rem;
 }

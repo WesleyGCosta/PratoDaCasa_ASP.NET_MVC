@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Dominio.Enums;
+using System;
 
 namespace WebApplication.Models
 {
     public class ProdutoViewModel
     {
         public Guid Id {  get; set; }
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public int QuantidadeEstoque { get; set; }
+        public string Descricao { get; set; }
+        public decimal PrecoCompra { get; set; }
+        public decimal PrecoVenda { get; set; }
+        public int QtdeEstoque { get; set; }
+        public DateTime DataCadastro { get; set; }
+        public EStatusProduto EstatusProduto { get; set; }
     }
 }

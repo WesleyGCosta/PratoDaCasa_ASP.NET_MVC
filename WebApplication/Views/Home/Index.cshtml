@@ -1,8 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<WebApplication.Models.MesaViewModel>
+
+@{
+    ViewData["Title"] = "Página Principal";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Wesley Gomes da Costa</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section>
+    <div class="row container-lista">
+        @foreach (var mesa in Model)
+        {
+            <a class="lista-item"  asp-controller="Mesa" asp-action="Detalhar" asp-route-id="@mesa.Id">
+                <div>
+                    <div class="text-center">
+                        <h4>Mesa<br /></h4>
+                        <p class="titulo-card "><strong>@Html.DisplayFor(modelItem => mesa.Numero)</strong></p>
+                    </div>
+                    <p class="status-card-aberta">@Html.DisplayFor(x => mesa.Status)</p>
+                </div>
+            </a>
+        }
+    </div>
+
+</section>

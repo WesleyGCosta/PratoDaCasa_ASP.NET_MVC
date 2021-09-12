@@ -12,22 +12,24 @@ namespace WebApplication.Models
     {
         public MesaViewModel()
         {
-            Id = Guid.NewGuid();
+            Data = DateTime.Now;
+            Cliente = "Consumidor";
         }
 
         [HiddenInput]
-        [Key]
         public Guid Id { get; set; }
+
         [Required(ErrorMessage = "*Campo Obrigatório!!!")]
         public int Numero { get; set; }
 
         [Required(ErrorMessage = "*Campo Obrigatório!!!")]
-        public int QntCadeira {  get; set; }
+        public string Cliente { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "*Campo Obrigatório!!!")]
-        public EStatus Status { get; set; }
+        public EStatusMesa Status { get; set; }
 
-        [Required(ErrorMessage = "*Campo Obrigatório!!!")]
-        public int QntCliente { get; set; }
     }
 }

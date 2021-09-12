@@ -19,9 +19,9 @@ namespace Historia.Mesas
             var dadosDaMesa = await _mesaRepository.BuscarPoId(id);
 
             dadosDaMesa.AtualizarMesa(mesa.Numero,
-                dadosDaMesa.QntCadeira,
-                dadosDaMesa.Status,
-                dadosDaMesa.QntCliente);
+                dadosDaMesa.Cliente,
+                dadosDaMesa.Data,
+                dadosDaMesa.Status);
 
             await _mesaRepository.Alterar(dadosDaMesa);
             

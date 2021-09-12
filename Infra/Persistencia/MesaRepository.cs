@@ -4,6 +4,7 @@ using Infra.Contexto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Infra.Persistencia
@@ -38,7 +39,7 @@ namespace Infra.Persistencia
         }
         public async Task<IEnumerable<Mesa>> BuscarTodos()
         {
-            return await _dataContext.Mesas.AsNoTracking().ToListAsync();
+            return await _dataContext.Mesas.AsNoTracking().OrderBy(m => m.Numero).ToListAsync();
         }
     }
 }

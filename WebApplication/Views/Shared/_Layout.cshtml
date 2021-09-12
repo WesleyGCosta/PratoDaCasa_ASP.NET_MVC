@@ -16,22 +16,14 @@
                     <h6 href="#" class="nav__logo">Prato da Casa</h6>
                 </div>
                 <div class="nav__list">
-                    <a href="#" class="nav__link">
+                    <a asp-controller="Home" asp-action="Index" class="nav__link">
                         <ion-icon name="home-outline" class="nav__icon"></ion-icon>
-                        <span class="nav__name">Dashboard</span>
+                        <span class="nav__name">Salão</span>
                     </a>
 
-                    <div asp-controller="Mesa"  asp-action="Index" class="nav__link collapse">
-                        <ion-icon name="restaurant-outline" class="nav__icon"></ion-icon>
-                        <span class="nav__name">Salão</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                      
-                    </div>
                     <a asp-controller="Mesa"  asp-action="Index" class="nav__link">
                         <ion-icon name="tablet-landscape-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">Mesas</span>
+                        <span class="nav__name">Mesas</span>
                     </a>
                     <a href="#" class="nav__link">
                         <ion-icon name="grid-outline" class="nav__icon"></ion-icon>
@@ -51,8 +43,10 @@
 
         </nav>
     </div>
-    
-    @RenderBody()
+
+    <main class="container">
+        @RenderBody()
+    </main>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

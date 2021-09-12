@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using Dominio.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -14,11 +15,9 @@ namespace Infra.Contexto.Maps
             builder.ToTable("ItensDoPedido");
             builder.HasKey(i => i.Id);
             builder.Property(i => i.Quantidade).IsRequired().HasColumnType("int");
-            builder.Property(i => i.Preco).IsRequired().HasColumnType("decimal");
-
-            builder.HasMany(p => p.Pedidos).WithOne(i => i.ItemDoPedido).HasForeignKey(i => i.ItemDoPedidoId);
-            builder.HasMany(c => c.Produto).WithOne(i => i.ItemDoPedido).HasForeignKey(i => i.ItemDoPedidoId);
-
+            builder.Property(i => i.ValorUnitario).IsRequired().HasColumnType("decimal");
+            builder.Property(i => i.SubTotal).IsRequired().HasColumnType("decimal");
+            builder.Property(i => i.StatusItem).HasConversion(y => y.ToString(), y => (EStatusItem)Enum.Parse(typeof(EStatusItem), y)).HasMaxLength(15).IsRequired();
         }
     }
 }

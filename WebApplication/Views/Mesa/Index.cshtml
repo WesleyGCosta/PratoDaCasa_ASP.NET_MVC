@@ -15,13 +15,13 @@
                 @Html.DisplayNameFor(model => model.Numero)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QntCadeira)
+                @Html.DisplayNameFor(model => model.Data)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QntCliente)
+                @Html.DisplayNameFor(model => model.Cliente)
             </th>
             <th></th>
         </tr>
@@ -34,13 +34,13 @@
                         @Html.DisplayFor(modelItem => item.Numero)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.QntCadeira)
+                        @Html.DisplayFor(modelItem => item.Data)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Status)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.QntCliente)
+                        @Html.DisplayFor(modelItem => item.Cliente)
                     </td>
                     <td>
                         <button type="button" class="btn btn-info" data-toggle="ajax-modal" data-target="#myModal" data-url="@Url.Action($"Alterar/{item.Id}")">Alterar</button>

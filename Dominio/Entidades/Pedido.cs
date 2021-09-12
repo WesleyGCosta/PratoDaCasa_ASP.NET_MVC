@@ -1,20 +1,29 @@
-﻿using System;
+﻿using Dominio.Enums;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Dominio.Entidades
 {
     public class Pedido
     {
-        public Guid Id {  get; private set; }
-        public Guid ClienteId {  get; private set; }
-        public Guid ItemDoPedidoId {  get; private set; }
-        public DateTime Data { get; set; }
-        public decimal ValorTotal { get; set; }
-        public int Quantidade {  get; private set; }
+        public Pedido(DateTime datadoPedido, decimal valorTotal, EStatusPedido statusPedido, int quantidadeDeItens)
+        {
+            DatadoPedido = datadoPedido;
+            ValorTotal = valorTotal;
+            StatusPedido = statusPedido;
+            QuantidadeDeItens = quantidadeDeItens;
+            ItemDoPedido = new List<ItemDoPedido>();
+        }
 
-        public Cliente Cliente {  get; private set; }
-        public ItemDoPedido ItemDoPedido { get; private set; }
+        public Guid Id {  get; private set; }
+        public Guid MesaId {  get; private set; }
+        public DateTime DatadoPedido { get; private set; }
+        public decimal ValorTotal { get; private set; }
+        public EStatusPedido StatusPedido {  get; private set; }
+        public int QuantidadeDeItens {  get; private set; }
+
+        public Mesa Mesa {  get; private set; }
+        public virtual ICollection<ItemDoPedido> ItemDoPedido { get; private set; }
 
     }
 }

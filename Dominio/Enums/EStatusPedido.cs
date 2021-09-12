@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Dominio.Enums
 {
-    public enum EStatus
+    public enum  EStatusPedido
     {
-        Aberta,
-        Ocupada, 
-        Reservado
+        Espera,
+        Preparando
     }
 }

@@ -1,8 +1,5 @@
 ﻿using Dominio.Entidades;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApplication.Models;
 
 namespace WebApplication.Factories
@@ -15,9 +12,9 @@ namespace WebApplication.Factories
             {
                 Id = mesa.Id,
                 Numero = mesa.Numero,
-                QntCadeira = mesa.QntCadeira,
-                Status = mesa.Status,
-                QntCliente = mesa.QntCliente
+                Cliente = mesa.Cliente,
+                Data = mesa.Data,
+                Status = mesa.Status
             };
 
             return mesaViewModel;
@@ -27,9 +24,9 @@ namespace WebApplication.Factories
         {
             var mesa = new Mesa(
                 mesaViewModel.Numero,
-                mesaViewModel.QntCadeira,
-                mesaViewModel.Status,
-                mesaViewModel.QntCliente
+                mesaViewModel.Cliente,
+                mesaViewModel.Data,
+                mesaViewModel.Status
                 );
 
             return mesa;

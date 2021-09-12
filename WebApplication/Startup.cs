@@ -25,11 +25,9 @@ namespace WebApplication
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IMesaRepository, MesaRepository>();
-            services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IItemDoPedidoRepository, ItemDoPedidoRepository>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            services.AddScoped<ITipoDeProdutoRepository, TipoDeProdutoRepository>();
             services.AddControllersWithViews();
         }
 

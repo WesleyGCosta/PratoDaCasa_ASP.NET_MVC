@@ -7,35 +7,33 @@ namespace Dominio.Entidades
 {
     public class Mesa
     {
-        public Mesa(int numero, 
-            int qntCadeira, 
-            EStatus status, 
-            int qntCliente)
+        public Mesa(int numero, string cliente, DateTime data, EStatusMesa status)
         {
             Numero = numero;
-            QntCadeira = qntCadeira;
+            Cliente = cliente;
+            Data = data;
             Status = status;
-            QntCliente = qntCliente;
+            Pedidos = new List<Pedido>();
         }
 
         public Guid Id { get; private set; }
         public int Numero { get; private set; }
-        public int QntCadeira {  get; private set; }
-        public EStatus Status {  get; private set; }
-        public int QntCliente {  get; private set; }
+        public string Cliente {  get; private set; }
+        public DateTime Data { get; private set;  }
+        public EStatusMesa Status {  get; private set; }
 
-        public ICollection<Cliente> Clientes {  get; private set; }
+        public virtual ICollection<Pedido> Pedidos { get; private set; }
 
         /*Métodos*/
         public void AtualizarMesa(int numero, 
-            int qntCadeira, 
-            EStatus status, 
-            int qntCliente)
+            string cliente, 
+            DateTime data,
+            EStatusMesa status)
         {
             this.Numero = numero;
-            this.QntCadeira = qntCadeira;
+            this.Cliente = cliente;
+            this.Data = data;
             this.Status = status;
-            this.QntCliente = qntCliente;
         }
 
     }

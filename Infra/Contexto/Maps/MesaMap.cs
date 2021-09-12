@@ -3,8 +3,6 @@ using Dominio.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Infra.Contexto.Maps
 {
@@ -16,12 +14,11 @@ namespace Infra.Contexto.Maps
             builder.HasKey(m => m.Id);
             builder.HasIndex(m => m.Numero);
             builder.Property(m => m.Numero).IsRequired().HasColumnType("int");
-            builder.Property(m => m.QntCadeira).IsRequired().HasColumnType("int");
-            builder.Property(m => m.QntCliente).IsRequired().HasColumnType("int");
-            builder.Property(m => m.Status).HasConversion(y => y.ToString(), y => (EStatus)Enum.Parse(typeof(EStatus), y)).HasMaxLength(15).IsRequired();
+            builder.Property(m => m.Cliente).IsRequired().HasMaxLength(30).HasColumnType("varchar(30)");
+            builder.Property(m => m.Data).IsRequired().HasColumnType("date");
+            builder.Property(m => m.Status).HasConversion(y => y.ToString(), y => (EStatusMesa)Enum.Parse(typeof(EStatusMesa), y)).HasMaxLength(15).IsRequired();
 
-            builder.HasMany(c => c.Clientes).WithOne(m => m.Mesa).HasForeignKey(m => m.MesaId);
-
+            builder.HasMany(c => c.Pedidos).WithOne(m => m.Mesa).HasForeignKey(m => m.MesaId);
 
         }
     }
